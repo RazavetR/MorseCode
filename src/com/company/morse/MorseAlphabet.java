@@ -5,7 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 
 public class MorseAlphabet {
-    private HashMap<String, String> alphabet;
+    private HashMap<String, List<MorseSymbol>> alphabet;
+
+    private HashMap<String, MorseSymbol> symbolTranslator;
 
     public MorseAlphabet() {
         String[] characters = { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
@@ -18,13 +20,28 @@ public class MorseAlphabet {
                 "..---", "...--", "....-", ".....", "-....", "--...", "---..", "----.",
                 "-----"};
 
+        symbolTranslator = new HashMap<>();
+        symbolTranslator.put(".", Short.getInstance());
+        symbolTranslator.put("-", Long.getInstance());
+
+        List<List<MorseSymbol>> symbols = new ArrayList<>();
+        for (String letter : morse) {
+            List <MorseSymbol> letterToAdd = new ArrayList<>();
+            for (char character : letter.toCharArray()) {
+                letterToAdd.add(symbolTranslator.get(String.valueOf(character)));
+            }
+            symbols.add(letterToAdd);
+        }
+
+
         alphabet = new HashMap<>();
         for (int i = 0; i < characters.length; i++) {
-            alphabet.put(characters[i], morse[i]);
+            alphabet.put(characters[i], symbols.get(i));
         }
     }
 
-    private String getMorseFromChar(String charToTranslate) {
-        return alphabet.get(charToTranslate);
+
+    public List<MorseSymbol> getMorseFromChar(char charToTranslate) {
+        return alphabet.get(String.valueOf(Character.toLowerCase(charToTranslate)));
     }
 }
