@@ -8,6 +8,7 @@ public class Short extends MorseSymbol {
     }
 
     public static Short getInstance() {
+        // TODO: if ???
         if (instanceShort == null)
             instanceShort = new Short();
         return instanceShort;

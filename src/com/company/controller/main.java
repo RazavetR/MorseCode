@@ -12,6 +12,8 @@ public class main {
         Scanner input = new Scanner(System.in);
         String toTranslate = input.nextLine();
 
-
+        Morse morse = new Morse();
+        for (MorseSymbol symbol : morse.translate(toTranslate))
+            System.out.print(symbol);
     }
 }

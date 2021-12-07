@@ -1,15 +1,13 @@
 package com.company.morse;
 
 public class Space extends MorseSymbol {
-    private static Space instanceSpace;
+    private static final Space instanceSpace = new Space();
 
     public Space() {
         setValue("  ");
     }
 
     public static Space getInstance() {
-        if (instanceSpace == null)
-            instanceSpace = new Space();
         return instanceSpace;
     }
 }
