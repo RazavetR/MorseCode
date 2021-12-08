@@ -39,7 +39,11 @@ public class MorseAlphabet {
     }
 
 
-    public List<MorseSymbol> getMorseFromChar(char charToTranslate) {
-        return alphabet.get(String.valueOf(Character.toLowerCase(charToTranslate)));
+    public List<MorseSymbol> getMorseFromChar(char charToTranslate) throws InvalidASCIIException {
+        List<MorseSymbol> result = alphabet.get(String.valueOf(Character.toLowerCase(charToTranslate)));
+
+        if (result == null)
+            throw new InvalidASCIIException(charToTranslate);
+        return result;
     }
 }
