@@ -1,14 +1,12 @@
 package com.company.morse;
 
 public class Long extends MorseSymbol{
-    private static Long instanceLong;
-    public Long() {
-        setValue("_ ");
+    private static final Long instanceLong = new Long();
+    private Long() {
+        setValue("___ ");
     }
 
     public static Long getInstance() {
-        if (instanceLong == null)
-            instanceLong = new Long();
         return instanceLong;
     }
 }

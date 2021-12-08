@@ -7,8 +7,6 @@ import java.util.List;
 public class MorseAlphabet {
     private HashMap<String, List<MorseSymbol>> alphabet;
 
-    private HashMap<String, MorseSymbol> symbolTranslator;
-
     public MorseAlphabet() {
         String[] characters = { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
                 "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x",
@@ -20,7 +18,7 @@ public class MorseAlphabet {
                 "..---", "...--", "....-", ".....", "-....", "--...", "---..", "----.",
                 "-----"};
 
-        symbolTranslator = new HashMap<>();
+        HashMap<String, MorseSymbol> symbolTranslator = new HashMap<>();
         symbolTranslator.put(".", Short.getInstance());
         symbolTranslator.put("-", Long.getInstance());
 

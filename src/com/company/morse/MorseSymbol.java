@@ -1,9 +1,5 @@
 package com.company.morse;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class MorseSymbol {
     private String value;
 
